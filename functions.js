@@ -2,6 +2,7 @@ var time = 45;
 var move = 2;
 var clicks = 0;
 var check = 0;
+var buttonClicked = false;
 var b1 = document.getElementById("button1");
 var b2 = document.getElementById("button2");
 var b3 = document.getElementById("button3");
@@ -28,11 +29,16 @@ var b23 = document.getElementById("button23");
 var b24 = document.getElementById("button24");
 var score = document.getElementById("score");
 var timer = document.getElementById("timer");
+var body = document.getElementById("body");
 var movetimer = document.getElementById("movetimer");
 var grid = document.getElementsByClassName("grid");
 var button = document.getElementsByClassName("button");
 var topbox = document.getElementsByClassName("top-box");
 var bottombox = document.getElementsByClassName("bottom-box");
+var clicksound = new Audio('audio/click.mp3');
+var kahoot = new Audio('audio/kahoot.mp3');
+var viewportWidth = window.innerWidth;
+var viewportHeight = window.innerHeight;
 var random;
 var clock;
 var movement;
@@ -50,14 +56,19 @@ window.onload = function(){
 	}
 }
 function clickToStart() {
+  kahoot.load();
+  kahoot.play();
   console.log("removed start function");
   b1.removeEventListener("click", clickToStart);
   console.log("started timer");
   game();
   //btnmove();
-    for (i = 0; i < button.length; i++) {
-      button[i].innerHTML = "Click Me!";
-	}
+  for (i = 0; i < button.length; i++) {
+    button[i].innerHTML = "Click Me!";
+  }
+  for (i = 0; i < grid.length; i++) {
+   // grid[i].addEventListener("click", removePoint);
+  }
 }
 function game() {
   if (time > 0) {
@@ -66,6 +77,15 @@ function game() {
     timer.innerHTML = "Time Remaining: " + time + " Seconds";
     clock = setInterval(game, 1000);
     console.log("Time Remaining: " + time);
+    if (time == 30) {
+	  kahoot.playbackRate = 1.25;
+	} else if (time == 20) {
+       kahoot.playbackRate = 1.5;
+	} else if (time == 10) {
+      kahoot.playbackRate = 1.75;
+    }else if (time == 5) {
+      kahoot.playbackRate = 2.0;
+    }
   } else {
     clearInterval(clock);
     gameOver();
@@ -89,6 +109,8 @@ function game() {
   move = 2;
 }*/
 function countClick() {
+  clicksound.load();
+  clicksound.play();
   clicks += 1;
   score.innerHTML = "Score: "+clicks;
   console.log("Score: "+clicks);
@@ -116,6 +138,10 @@ function gameOver() {
 function generateRandom() {
   random = button[Math.floor(Math.random() *button.length)];
   console.log(random);
+}
+function generateRandom2() {
+    random = button[Math.floor(Math.random() * 16)];
+    console.log(random);
 }
 function randomMove() {
   if (random == button[0]) {
@@ -399,6 +425,18 @@ function reset() {
   window.location.reload();
 }
 function onClickMove() {
-  generateRandom();
+  if (viewportWidth < 776) {
+    generateRandom2();
+    randomMove();
+  } else if (viewportHeight < 801) {
+    generateRandom2();
 	randomMove();
+  } else {
+    generateRandom();
+    randomMove();
+  }
+}
+function removePoint() {
+  clicks -= 1;	
+  score.innerHTML = "Score: "+ clicks;
 }

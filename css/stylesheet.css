@@ -149,6 +149,30 @@ p {
   .button {
     font-size: vmax;
   }
+  #button17 {
+    display: none;
+  }
+  #button18 {
+    display: none;
+  }
+  #button19 {
+    display: none;
+  }
+  #button20 {
+    display: none;
+  }
+  #button21 {
+    display: none;
+  }
+  #button22 {
+    display: none;
+  }
+  #button23 {
+    display: none;
+  }
+  #button24 {
+    display: none;
+  }
 }
 @media only screen and (max-height: 800px) {
   body {
