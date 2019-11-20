@@ -47,10 +47,10 @@ window.onload = function(){
     button[i].addEventListener("click", countClick);
   }
   b1.addEventListener("click", clickToStart);
-  timer.innerHTML = "Time Remaining: " + time + " Seconds";
-  score.innerHTML = "Score: "+ clicks;
+  timer.innerHTML = "time remaining: " + time + " seconds";
+  score.innerHTML = "score: "+ clicks;
   //movetimer.innerHTML = "Time Until Move: " + move + " Seconds";
-  movetimer.innerHTML = "Time Until Move: N/A";
+  movetimer.innerHTML = "time until ove: n/a";
   for (i = 1; i < button.length; i++) {
       button[i].style.display = "none";
 	}
@@ -64,7 +64,7 @@ function clickToStart() {
   game();
   //btnmove();
   for (i = 0; i < button.length; i++) {
-    button[i].innerHTML = "Click Me!";
+    button[i].innerHTML = "click me!";
   }
   for (i = 0; i < grid.length; i++) {
    // grid[i].addEventListener("click", removePoint);
@@ -74,9 +74,9 @@ function game() {
   if (time > 0) {
     clearInterval(clock);
     time -= 1;
-    timer.innerHTML = "Time Remaining: " + time + " Seconds";
+    timer.innerHTML = "time remaining: " + time + " seconds";
     clock = setInterval(game, 1000);
-    console.log("Time Remaining: " + time);
+    console.log("time remaining: " + time);
     if (time == 30) {
 	  kahoot.playbackRate = 1.25;
 	} else if (time == 20) {
@@ -112,13 +112,13 @@ function countClick() {
   clicksound.load();
   clicksound.play();
   clicks += 1;
-  score.innerHTML = "Score: "+clicks;
-  console.log("Score: "+clicks);
+  score.innerHTML = "score: "+clicks;
+  console.log("score: "+clicks);
   onClickMove();
-  console.log("Button Move");
+  console.log("button Move");
 }
 function gameOver() {
-  window.alert("Game Over!");
+  window.alert("game over!");
   for (i = 0; i < grid.length; i++) {
     grid[i].style.backgroundColor = "#3B77B8";
 	}
@@ -131,7 +131,7 @@ function gameOver() {
   for (i = 0; i < button.length; i++) {
     button[i].removeEventListener("click", countClick);
     button[i].addEventListener("click", reset); 
-	button[i].innerHTML = "Click To Reset!";
+	button[i].innerHTML = "click to reset!";
     }
   b1.style.backgroundColor = "#F0CC8D";
   }
@@ -414,7 +414,7 @@ function randomMove() {
       }
 	}
   } else if (viewportHeight < 801) {
-        if (random == button[0]) {
+    if (random == button[0]) {
       if (check == 0) {
         generateRandom2();
         randomMove();

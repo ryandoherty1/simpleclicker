@@ -1,10 +1,9 @@
 @font-face {
-    font-family: 'junebugregular';
-    src: url("fonts/junebug-webfont.woff2") format('woff2'),
-         url("fonts/junebug-webfont.woff") format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'Delicious';
+  src: url('fonts/Delicious.woff2') format('woff2'),
+       url('fonts/Delicious.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 body, html {
   height: 100vh;
@@ -81,12 +80,24 @@ body, html {
   background-color: #93C2F5;
   font-size: 1.5vmax;
   color: #22456B;
-  font-family: 'junebugregular';
+  font-family: 'Delicious';
 }
+button:hover {
+  background-color: #e54747;
+  cursor: url(cursors/cursoralt.png), auto;
+  box-shadow: 0 3px #999;
+  transform: translateY(-4px);
+}
+button:active {
+  transform: translateY(4px);
+}
+  #tb1:hover {
+    background-image: url(images/dannydevito.jpg);
+  }
 p {
   padding: 10px;
   color: #22456B;
-  font-family: 'junebugregular';
+  font-family: 'Delicious';
 }
 @media only screen and (max-width: 775px) {
   body {
