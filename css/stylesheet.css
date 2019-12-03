@@ -82,6 +82,15 @@ body, html {
   color: #22456B;
   font-family: 'Delicious';
 }
+.button2 {
+  cursor: url(cursors/cursor.png), auto;
+  height: 40%;
+  width: 75%;
+  background-color: #93C2F5;
+  font-size: 1vmax;
+  color: #22456B;
+  font-family: 'Delicious';
+}
 button:hover {
   background-color: #e54747;
   cursor: url(cursors/cursoralt.png), auto;
