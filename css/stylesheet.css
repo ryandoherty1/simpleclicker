@@ -1,3 +1,4 @@
+/* imports custom font*/
 @font-face {
   font-family: 'Delicious';
   src: url('fonts/Delicious.woff2') format('woff2'),
@@ -37,7 +38,7 @@ body, html {
   box-sizing: border-box;
   border-right: 0;
   border-bottom: 0;
-}
+} /*reused on all divs under the div "main"*/
 .top-bar {
   height: 60%;
   width: 100%;
@@ -81,7 +82,7 @@ body, html {
   font-size: 1.5vmax;
   color: #22456B;
   font-family: 'Delicious';
-}
+} /*used on all buttons within game/grid*/
 .button2 {
   cursor: url(cursors/cursor.png), auto;
   height: 40%;
@@ -108,6 +109,7 @@ p {
   color: #22456B;
   font-family: 'Delicious';
 }
+/* responsiveness for different pixel ratios */
 @media only screen and (max-width: 775px) {
   body {
     display: block;
@@ -195,6 +197,9 @@ p {
   #button24 {
     display: none;
   }
+   .button {
+    font-size: 2vmax;
+  }
 }
 @media only screen and (max-height: 800px) {
   body {
@@ -261,13 +266,11 @@ p {
     font-size: 1vmax;
   }
 }
-
 @media only screen and (max-width: 345px) {
   .button {
-    font-size: 1.5vmin;
+    font-size: 1.5vmax;
   }
 }
-
 @media only screen and (max-height: 375px) {
   .button {
     height: 50%;

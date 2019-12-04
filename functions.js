@@ -18,6 +18,7 @@ var viewportHeight = document.documentElement.clientHeight;
 var random;
 var clock;
 var movement;
+// this function adds functions to the buttons when the website loads
 window.onload = function(){
   for (i = 0; i < button.length; i++) {
     button[i].addEventListener("click", countClick);
@@ -31,6 +32,7 @@ window.onload = function(){
       button[i].style.display = "none";
 	}
 }
+// starts the game
 function clickToStart() {
   kahoot.load();
   kahoot.play();
@@ -46,6 +48,7 @@ function clickToStart() {
    // grid[i].addEventListener("click", removePoint);
   }
 }
+//controls the timer and the addition and removal of different functions
 function game() {
   if (time > 0) {
     clearInterval(clock);
@@ -67,6 +70,7 @@ function game() {
     gameOver();
 	}
 }
+//function currently removed under development
 /*function btnmove(){
   if (move > 1 && time > 0) {
     clearInterval(movement);
@@ -81,9 +85,11 @@ function game() {
     resetMove();
   }
 }*/
+//function currently removed under development
 /*function resetMove() {
   move = 2;
 }*/
+//counts clicks when the button is clicked
 function countClick() {
   clicksound.load();
   clicksound.play();
@@ -93,6 +99,7 @@ function countClick() {
   onClickMove();
   console.log("button Move");
 }
+//changes color score, sends alert, and changes button function to refresh the page
 function gameOver() {
   window.alert("game over!");
   for (i = 0; i < grid.length; i++) {
@@ -948,6 +955,7 @@ function randomMove() {
 function reset() {
   window.location.reload();
 }
+//button movement function, calls my random generation function(s)
 function onClickMove() {
   if (viewportWidth < 776) {
     console.log("mobile portrait");
@@ -970,6 +978,7 @@ function onClickMove() {
   clicks -= 1;	
   score.innerHTML = "Score: "+ clicks;
 } */
+//generates random functions
 function generateRandom() {
   random = button[Math.floor(Math.random() *button.length)];
   console.log(random);
